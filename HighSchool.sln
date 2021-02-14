@@ -5,11 +5,17 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HighSchool.DataAccessLayer", "HighSchool.DataAccessLayer\HighSchool.DataAccessLayer.csproj", "{E63B4588-E625-4716-96EB-F660E56D8BF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighSchool.ConsoleUI", "HighSchool.ConsoleUI\HighSchool.ConsoleUI.csproj", "{5ACA6CE8-9F6A-4FAB-8996-729D14240200}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HighSchool.ConsoleUI", "HighSchool.ConsoleUI\HighSchool.ConsoleUI.csproj", "{5ACA6CE8-9F6A-4FAB-8996-729D14240200}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighSchool.DataAccessLayerADO", "HighSchool.DataAccessLayerADO\HighSchool.DataAccessLayerADO.csproj", "{EFBB71A2-12B2-4A9E-B78F-B1BDE37505D8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickKartConsole", "QuickKartConsole\QuickKartConsole.csproj", "{022A502F-E1B3-4AF0-8A3F-734E5DF85085}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HighSchoolDBSQLScripts", "HighSchoolDBSQLScripts", "{73D2068A-89BF-4218-8DB1-CC4CB4D30279}"
+	ProjectSection(SolutionItems) = preProject
+		..\HighSchoolDBSQLScripts.sql = ..\HighSchoolDBSQLScripts.sql
+		..\HighSchoolDBSQLScriptsMS.sql = ..\HighSchoolDBSQLScriptsMS.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
