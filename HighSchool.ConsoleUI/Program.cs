@@ -36,7 +36,8 @@ namespace HighSchool.ConsoleUI
             Class1 dal = new Class1();
             if (dal.TestConnection())
             {
-                string data = dal.ReadData();
+                string data1 = dal.ReadDataPerson1();
+                string data = dal.ReadDataPerson();
                 Console.WriteLine("\n\n " + data + " \n");
             }
             else

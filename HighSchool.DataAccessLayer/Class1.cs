@@ -30,10 +30,10 @@ namespace HighSchool.DataAccessLayer
             return status;
         }
 
-        public string ReadData()
+        public string ReadDataPerson1()
         {
             var connectionStringBuilder = new SqliteConnectionStringBuilder();
-            connectionStringBuilder.DataSource = "C:/Users/INDIAN/Documents/DB/HighSchool;";
+            connectionStringBuilder.DataSource = "C:/Users/INDIAN/Documents/DB/HighSchool";
 
             var conTest = new SqliteConnection(connectionStringBuilder.ConnectionString);
             string data;
@@ -47,10 +47,10 @@ namespace HighSchool.DataAccessLayer
                 rObj = selectCmd.ExecuteReader(CommandBehavior.CloseConnection);
                 while (rObj.Read()) 
                 {
-                    data = "\n" + data + rObj["PersonID"] + " " + rObj["LastName"] + " " + rObj["FirstName"] + " " + rObj["HireDate"] + " " + rObj["EnrollmentDate"] + " " + rObj["Discriminator"];
+                    data = "\n" + data + rObj["PersonID"] + " " + rObj["FirstName"] + " " + rObj["LastName"] + " " + rObj["UserPassword"] + " " + rObj["RoleId"] + " " + rObj["Gender"] + " " + rObj["DateOfBirth"] + " " + rObj["Address"];
                 }
             }
-            catch
+            catch(Exception ex)
             {
                 data = "";
             }
@@ -60,5 +60,54 @@ namespace HighSchool.DataAccessLayer
             }
             return data;
         }
+
+
+        public string ReadDataPerson()
+        {
+            var connectionStringBuilder = new SqliteConnectionStringBuilder();
+            connectionStringBuilder.DataSource = "C:/Users/INDIAN/Documents/DB/HighSchool";
+
+            var conTest = new SqliteConnection(connectionStringBuilder.ConnectionString);
+            string data = "";
+            try
+            {
+                DataTable dtObj = new DataTable();
+                var conStingBuilder = new System.Data.SQLite.SQLiteConnectionStringBuilder();
+                conStingBuilder.DataSource = "C:/Users/INDIAN/Documents/DB/HighSchool";
+                var conObj = new System.Data.SQLite.SQLiteConnection(conStingBuilder.ConnectionString);
+                //System.Data.SQLite.SQLiteConnection conObj = new System.Data.SQLite.SQLiteConnection();
+                System.Data.SQLite.SQLiteCommand cmdObj = new System.Data.SQLite.SQLiteCommand("select * from person;", conObj);
+                //SqliteDataAdapter daObj;
+                System.Data.SQLite.SQLiteDataAdapter dAdapter = new System.Data.SQLite.SQLiteDataAdapter(cmdObj);
+                dAdapter.Fill(dtObj);
+
+                foreach (DataRow i in dtObj.Rows)
+                {
+                    data = "\n" + data + i["PersonID"] + " " + i["FirstName"] + " " + i["LastName"] + " " + i["UserPassword"] + " " + i["RoleId"] + " " + i["Gender"] + " " + i["DateOfBirth"] + " " + i["Address"];
+                }
+
+
+                //conTest.Open();
+                //data = "";
+                //var selectCmd = conTest.CreateCommand();
+                //selectCmd.CommandText = "select * from person;";
+                //SqliteDataReader rObj = null;
+                //rObj = selectCmd.ExecuteReader(CommandBehavior.CloseConnection);
+                //while (rObj.Read())
+                //{
+                //    data = "\n" + data + rObj["PersonID"] + " " + rObj["FirstName"] + " " + rObj["LastName"] + " " + rObj["UserPassword"] + " " + rObj["RoleId"] + " " + rObj["Gender"] + " " + rObj["DateOfBirth"] + " " + rObj["Address"];
+                //}
+            }
+            catch(Exception ex)
+            {
+                data = "";
+            }
+            finally
+            {
+                //conTest.Close();
+            }
+            return data;
+        }
+
     }
 }
