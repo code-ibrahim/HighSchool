@@ -11,7 +11,9 @@ namespace HighSchool.ConsoleUI
         {
             Console.WriteLine("Hello World!");
             //TestConnection();
-            ReadDatafromDB();
+            //ReadDatafromDB();
+            //GetAllPerson();
+            GetPersonById(5);
         }
 
         #region Demo 2
@@ -45,6 +47,20 @@ namespace HighSchool.ConsoleUI
             {
                 Console.WriteLine("\n\n Some error occured \n");
             }
+        }
+
+        public static void GetAllPerson() 
+        {
+            HighSchoolRepository repository = new HighSchoolRepository();
+            var data = repository.GetAllPerson();
+
+        }
+
+        public static void GetPersonById(long id)
+        {
+            HighSchoolRepository repository = new HighSchoolRepository();
+            var data = repository.GetPersonById(id);
+
         }
 
         #endregion
