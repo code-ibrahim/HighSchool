@@ -20,7 +20,7 @@ namespace HighSchool.ConsoleUI
         public static void TestConnection()
         {
             Console.Clear();
-            Class1 dal = new Class1();
+            DataAccessLayerADO dal = new DataAccessLayerADO();
             if (dal.TestConnection())
             {
                 Console.WriteLine("\n\n Connection successful \n");
@@ -33,12 +33,13 @@ namespace HighSchool.ConsoleUI
 
         public static void ReadDatafromDB() 
         {
-            Class1 dal = new Class1();
+            DataAccessLayerADO dal = new DataAccessLayerADO();
             if (dal.TestConnection())
             {
                 string data1 = dal.ReadDataPerson1();
-                string data = dal.ReadDataPerson();
-                Console.WriteLine("\n\n " + data + " \n");
+                string data2 = dal.ReadDataPerson();
+                string data = dal.ReadDataRoles();
+                Console.WriteLine("\n\n" + data + " \n");
             }
             else
             {

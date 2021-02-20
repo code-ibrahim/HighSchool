@@ -4,7 +4,7 @@ using System.Data;
 
 namespace HighSchool.DataAccessLayer
 {
-    public class Class1
+    public class DataAccessLayerADO
     {
         public bool TestConnection()
         {
@@ -47,7 +47,7 @@ namespace HighSchool.DataAccessLayer
                 rObj = selectCmd.ExecuteReader(CommandBehavior.CloseConnection);
                 while (rObj.Read()) 
                 {
-                    data = "\n" + data + rObj["PersonID"] + " " + rObj["FirstName"] + " " + rObj["LastName"] + " " + rObj["UserPassword"] + " " + rObj["RoleId"] + " " + rObj["Gender"] + " " + rObj["DateOfBirth"] + " " + rObj["Address"];
+                    data = data + rObj["PersonID"] + " " + rObj["FirstName"] + " " + rObj["LastName"] + " " + rObj["UserPassword"] + " " + rObj["RoleId"] + " " + rObj["Gender"] + " " + rObj["DateOfBirth"] + " " + rObj["Address"] + "\n";
                 }
             }
             catch(Exception ex)
@@ -83,7 +83,7 @@ namespace HighSchool.DataAccessLayer
 
                 foreach (DataRow i in dtObj.Rows)
                 {
-                    data = "\n" + data + i["PersonID"] + " " + i["FirstName"] + " " + i["LastName"] + " " + i["UserPassword"] + " " + i["RoleId"] + " " + i["Gender"] + " " + i["DateOfBirth"] + " " + i["Address"];
+                    data = data + i["PersonID"] + " " + i["FirstName"] + " " + i["LastName"] + " " + i["UserPassword"] + " " + i["RoleId"] + " " + i["Gender"] + " " + i["DateOfBirth"] + " " + i["Address"] + "\n";
                 }
 
 
@@ -99,6 +99,39 @@ namespace HighSchool.DataAccessLayer
                 //}
             }
             catch(Exception ex)
+            {
+                data = "";
+            }
+            finally
+            {
+                //conTest.Close();
+            }
+            return data;
+        }
+
+
+        public string ReadDataRoles()
+        {
+            string data = "";
+            try
+            {
+                DataTable dtObj = new DataTable();
+                var conStingBuilder = new System.Data.SQLite.SQLiteConnectionStringBuilder();
+                conStingBuilder.DataSource = "C:/Users/INDIAN/Documents/DB/HighSchool";
+                var conObj = new System.Data.SQLite.SQLiteConnection(conStingBuilder.ConnectionString);
+                //System.Data.SQLite.SQLiteConnection conObj = new System.Data.SQLite.SQLiteConnection();
+                System.Data.SQLite.SQLiteCommand cmdObj = new System.Data.SQLite.SQLiteCommand("select * from roles;", conObj);
+                //SqliteDataAdapter daObj;
+                System.Data.SQLite.SQLiteDataAdapter dAdapter = new System.Data.SQLite.SQLiteDataAdapter(cmdObj);
+                dAdapter.Fill(dtObj);
+
+                foreach (DataRow i in dtObj.Rows)
+                {
+                    data = data + i["RoleId"] + " " + i["RoleName"] + "\n";
+                }
+
+            }
+            catch (Exception ex)
             {
                 data = "";
             }

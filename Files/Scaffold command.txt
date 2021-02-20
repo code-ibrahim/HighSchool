@@ -1,0 +1,1 @@
+Scaffold-DbContext -Connection "Data Source=C:/Users/INDIAN/Documents/DB/HighSchool;" -Provider Microsoft.EntityFrameworkCore.Sqlite -OutputDir Models 

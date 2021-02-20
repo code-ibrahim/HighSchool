@@ -11,10 +11,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighSchool.DataAccessLayerA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickKartConsole", "QuickKartConsole\QuickKartConsole.csproj", "{022A502F-E1B3-4AF0-8A3F-734E5DF85085}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HighSchoolDBSQLScripts", "HighSchoolDBSQLScripts", "{73D2068A-89BF-4218-8DB1-CC4CB4D30279}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{0796D767-0F85-4809-B065-A792D27EB899}"
 	ProjectSection(SolutionItems) = preProject
-		..\HighSchoolDBSQLScripts.sql = ..\HighSchoolDBSQLScripts.sql
-		..\HighSchoolDBSQLScriptsMS.sql = ..\HighSchoolDBSQLScriptsMS.sql
+		Files\Scaffold command.txt = Files\Scaffold command.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HighSchoolDBSQLScripts", "HighSchoolDBSQLScripts", "{3311D13D-8BED-4669-8791-C4A6FCDC71F8}"
+	ProjectSection(SolutionItems) = preProject
+		HighSchoolDBSQLScripts\HighSchoolDBSQLScripts.sql = HighSchoolDBSQLScripts\HighSchoolDBSQLScripts.sql
+		HighSchoolDBSQLScripts\HighSchoolDBSQLScriptsMS.sql = HighSchoolDBSQLScripts\HighSchoolDBSQLScriptsMS.sql
 	EndProjectSection
 EndProject
 Global
